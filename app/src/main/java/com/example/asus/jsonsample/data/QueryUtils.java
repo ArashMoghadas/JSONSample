@@ -15,12 +15,11 @@ public class QueryUtils {
         List<Data> datas = new ArrayList<>();
         try {
             JSONObject root = new JSONObject();
-            JSONArray features = root.getJSONArray("features");
-            for (int i = 0; i < features.length(); i++){
-                JSONObject feature = features.getJSONObject(i);
-                JSONObject properties = feature.getJSONObject("properties");
-                Integer id = properties.getInt("id");
-                String name = properties.getString("name");
+            JSONArray items = root.getJSONArray("items");
+            for (int i = 0; i < items.length(); i++){
+                JSONObject item = items.getJSONObject(i);
+                Integer id = item.getInt("id");
+                String name = item.getString("name");
 
                 Data data = new Data(name, id);
                 datas.add(data);
